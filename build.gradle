@@ -9,16 +9,18 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+    id 'java'
+    id 'net.ltgt.errorprone' version "4.0.1"
 }
 
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
+    gradlePluginPortal()
 }
 
 dependencies {
-    // This dependency is used by the application.
-    implementation libs.guava
+    errorprone 'com.google.errorprone:error_prone_core:2.28.0'
 }
 
 testing {
@@ -26,7 +28,7 @@ testing {
         // Configure the built-in test suite
         test {
             // Use JUnit Jupiter test framework
-            useJUnitJupiter('5.10.0')
+            useJUnitJupiter('5.10.2')
         }
     }
 }
@@ -41,4 +43,14 @@ java {
 application {
     // Define the main class for the application.
     mainClass = 'edu.asestatuas.golfstrokes.App'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class' : 'edu.asestatuas.golfstrokes.App',
+                   'Package-Title' : 'golfstrokes',
+                   'Package-Version': '1.0',
+                   'Package-Vendor' : 'davidg@edu.xunta.gal',
+                   'Specification-Title' : 'Examen programacion'
+    }
 }
