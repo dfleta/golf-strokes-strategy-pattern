@@ -47,7 +47,7 @@ application {
 
 jar {
     manifest {
-        attributes 'Main-Class' : 'edu.asestatuas.golfstrokes.App',
+        attributes 'Main-Class' : 'edu.asestatuas.golfstrokes.GolfGame',
                    'Package-Title' : 'golfstrokes',
                    'Package-Version': '1.0',
                    'Package-Vendor' : 'davidg@edu.xunta.gal',
