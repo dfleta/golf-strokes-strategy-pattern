@@ -7,9 +7,28 @@ public class GolfGame {
 
     public static void main(String[] args) {
         System.out.println("OK");
+
+        Byte[] coursePlayerA = {4, 5, 3, 4, 4, 4, 4, 3, 5, 5, 4, 4, 3, 4, 4, 3, 4, 4}; // 71
+        Player playerA = new Player("MJ", (byte) 0);
+        playerA.setCourse(coursePlayerA);
+
+        Course augusta  = new Course(); 
+        augusta.addPlayerCourse(playerA, playerA.getCourse());
+
+        Byte[] coursePlayerB = {4, 5, 3, 4, 4, 4, 5, 3, 5, 5, 4, 4, 3, 5, 4, 3, 4, 4}; // 73
+        Player playerB = new Player("JS", (byte) 0);
+        playerB.setCourse(coursePlayerB);
+
+        augusta.addPlayerCourse(playerB, coursePlayerB);
+
+        ScoreCard scoreCard = new ScoreCard();
+        scoreCard.setPlayerA(playerA);
+        scoreCard.setPlayerB(playerB);
+        scoreCard.setPlayersCourse(augusta);
+
+        
+        
+
     }
 
-    /*
-     * 
-     */
 }
