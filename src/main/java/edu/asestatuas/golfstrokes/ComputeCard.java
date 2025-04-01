@@ -11,7 +11,8 @@ public class ComputeCard {
     }
 
     public void compute() {
-        // guardar en total de la tarjeta el total de cada jugador
+        // guardar en strokes de cada jugador
+        // en la tarjeta el total de cada jugador
         this.strategy.scoring(this.scoreCard);
     }
 }

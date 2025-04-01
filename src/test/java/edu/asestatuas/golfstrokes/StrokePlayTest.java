@@ -30,13 +30,13 @@ public class StrokePlayTest {
         
         // Crear recorridos de ejemplo (71 y 73 golpes)
         Byte[] coursePlayerA = {
-            4, 4, 3, 4, 4, 4, 3, 4, 5,  // Front nine: 35
-            4, 4, 3, 4, 4, 4, 4, 4, 5   // Back nine: 36
+            4, 4, 3, 4, 4, 4, 3, 4, 5,  // Out nine: 35
+            4, 4, 3, 4, 4, 4, 4, 4, 5   // In nine: 36
         }; // Total: 71
         
         Byte[] coursePlayerB = {
-            4, 4, 4, 4, 4, 4, 3, 4, 5,  // Front nine: 36
-            4, 4, 4, 4, 4, 4, 4, 4, 5   // Back nine: 37
+            4, 4, 4, 4, 4, 4, 3, 4, 5,  // Out nine: 36
+            4, 4, 4, 4, 4, 4, 4, 4, 5   // In nine: 37
         }; // Total: 73
         
         // Añadir recorridos al course
@@ -49,6 +49,7 @@ public class StrokePlayTest {
 
     @Test
     void testScoring() {
+        // si jugamos stroke play
         strokePlay.scoring(scoreCard);
         assertEquals((short) 71, playerA.getScore());
         assertEquals((short) 73, playerB.getScore());
