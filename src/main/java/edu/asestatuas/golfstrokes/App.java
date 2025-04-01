@@ -23,7 +23,7 @@ public class App {
         scoreCard.setPlayersCourse(augusta);
 
         /*
-         * Calcular total strokes de los jugadores
+         * Calcula el total strokes de los jugadores
          * en la modalidad stroke play
          */
         
@@ -37,6 +37,37 @@ public class App {
         // en strokePlay la lógica
         System.out.println(playerA);
         System.out.println(playerB);
+
+        /*
+         * Crea la colección de hoyos
+         * y añadelos a la tarjeta
+         */
+
+        Byte[] whiteYardsPar = {4, 5, 3, 4, 4, 4, 4, 3, 5, 5, 4, 4, 3, 4, 4, 3, 4, 4}; // 71
+        scoreCard.addHoles(whiteYardsPar);
+        System.out.println("Numero de hoyos: " + scoreCard.getNumHoles()); // 18
+
+        /*
+         * Los valores del enumerado representan los diferentes resultados 
+         * posibles en golf con sus puntos correspondientes en el sistema 
+         * Stableford:
+         * DOUBLE_BOGEY: -3 puntos, dos o más sobre
+         * BOGEY: -1 punto, 1 sobre par
+         * PAR: 0 puntos
+         * BIRDIE: 2 puntos, 1 bajo par
+         * EAGLE: 5 puntos, 2 bajo par
+         * ALBATROSS: 8 puntos, 3 bajo par
+         */
+        System.err.println("Birdie: " + StablefordSystem.BIRDIE.getPoints()); // printa 2
+        System.out.println("Eagle: " + StablefordSystem.EAGLE.getPoints());  // printa 5
+
+        /*
+         * Calcula el total strokes de los jugadores
+         * en la modalidad Stableford
+         */
+        GolfPlay stablefordPlay = new Stableford();
+        //ComputeCard computeStableford = new ComputeCard(scoreCard, stablefordPlay);
+        // computeStableford.compute();
     }
 
 }

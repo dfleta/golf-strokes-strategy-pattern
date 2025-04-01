@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ScoreCard {
-
-    private final Byte NUM_HOLES = 18;
     
     private Player playerA; // optional
     private Player playerB;
@@ -54,5 +52,16 @@ public class ScoreCard {
         if (playerC != null) players.add(playerC);
         if (playerD != null) players.add(playerD);
         return players;
+    }
+
+    public void addHoles(Byte[] holePar) {
+        byte holeNumber = 1;
+        for(Byte par : holePar) {
+            this.holes.add(new Hole(holeNumber++, par));
+        }
+    }
+
+    public byte getNumHoles() {
+        return (byte) this.holes.size();
     }
 }
