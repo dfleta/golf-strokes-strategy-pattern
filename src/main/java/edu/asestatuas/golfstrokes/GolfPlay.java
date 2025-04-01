@@ -2,6 +2,6 @@ package edu.asestatuas.golfstrokes;
 
 public interface GolfPlay {
 
-    short scoring(ScoreCard scoreCard);
+    void scoring(ScoreCard scoreCard);
     
 }

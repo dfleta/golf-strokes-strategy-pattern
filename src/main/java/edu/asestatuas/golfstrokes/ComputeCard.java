@@ -10,8 +10,8 @@ public class ComputeCard {
         this.strategy = strategy;
     }
 
-    public short compute() {
+    public void compute() {
         // guardar en total de la tarjeta el total de cada jugador
-        return this.strategy.scoring(this.scoreCard);
+        this.strategy.scoring(this.scoreCard);
     }
 }

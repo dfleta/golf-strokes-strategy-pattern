@@ -5,22 +5,26 @@ public class Player {
     private final String initials;
     private Byte handicap;
     private Short score = 0;
-    private Byte[] course;
 
     public Player(String initials, Byte handicap) {
         this.initials = initials;
         this.handicap = handicap;
     }
 
-    public void setCourse(Byte[] course) {
-        this.course = course;
-    }
-
-    public Byte[] getCourse() {
-        return this.course;
-    }
-
     public String getInitials() {
         return this.initials;
+    }
+
+    public void setScore(int score) {
+        this.score = (short) score;
+    }
+    
+    public Short getScore() {
+        return this.score;
+    }
+
+    @Override
+    public String toString() {
+        return this.initials + "\sH'cap:\s" + this.handicap + "\sstrokes:\s" + this.getScore();
     }
 }

@@ -2,6 +2,7 @@ package edu.asestatuas.golfstrokes;
 
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
+import com.google.common.primitives.Bytes;
 
 public class Course {
 
@@ -17,6 +18,10 @@ public class Course {
         for (Byte holeStrokes : playerCourse) {
             this.playersCourse.put(player.getInitials(), holeNumber++, holeStrokes);
         } 
+    }
+
+    public byte[] getPlayerCourse(Player player) {
+        return Bytes.toArray(this.playersCourse.row(player.getInitials()).values());
     }
     
 }
