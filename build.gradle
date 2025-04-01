@@ -21,6 +21,7 @@ repositories {
 
 dependencies {
     errorprone 'com.google.errorprone:error_prone_core:2.28.0'
+    implementation("com.google.guava:guava:33.4.6-jre")
 }
 
 testing {

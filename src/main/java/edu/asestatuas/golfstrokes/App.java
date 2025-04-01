@@ -4,11 +4,39 @@
 package edu.asestatuas.golfstrokes;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+
+        Course augusta  = new Course(); 
+        
+        Byte[] coursePlayerA = {4, 5, 3, 4, 4, 4, 4, 3, 5, 5, 4, 4, 3, 4, 4, 3, 4, 4}; // 71
+        Player playerA = new Player("MJ", (byte) 0);
+        augusta.addPlayerCourse(playerA, coursePlayerA);
+
+        Byte[] coursePlayerB = {4, 5, 3, 4, 4, 4, 5, 3, 5, 5, 4, 4, 3, 5, 4, 3, 4, 4}; // 73
+        Player playerB = new Player("JS", (byte) 0);
+        augusta.addPlayerCourse(playerB, coursePlayerB);
+
+        ScoreCard scoreCard = new ScoreCard();
+        scoreCard.setPlayerA(playerA);
+        scoreCard.setPlayerB(playerB);
+        scoreCard.setPlayersCourse(augusta);
+
+        /*
+         * Calcular total strokes de los jugadores
+         * en la modalidad stroke play
+         */
+        
+        GolfPlay strokePlay = new StrokePlay();
+        ComputeCard computeStrokePlay = new ComputeCard(scoreCard, strokePlay);
+        /*
+         * Guarda en scoreCard los total strokes
+         * de cada jugador
+         */
+        computeStrokePlay.compute();
+        // en strokePlay la lógica
+        System.out.println(playerA);
+        System.out.println(playerB);
     }
+
 }
