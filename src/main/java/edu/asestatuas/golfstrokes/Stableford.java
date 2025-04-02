@@ -1,12 +1,19 @@
 package edu.asestatuas.golfstrokes;
 
+import com.google.common.collect.Streams;
+import com.google.common.primitives.Bytes;
+
 public class Stableford implements GolfPlay {
 
     @Override
     public void scoring(ScoreCard scoreCard) {
-        throw new UnsupportedOperationException("Unimplemented method 'scoring'");
-        // restar strokes - par = numero bajo /sobre par; 3 - 5 = -2 bajo par
-        // enum.PAR(2) - numero = enum  ;  2 --2 = 4 => enum.val(4).getPints()
-         
+        scoreCard.getPlayers().forEach(
+            player -> player.setPoints(
+                Streams.zip(scoreCard.getHoles().stream().map(Hole::getPar), 
+                            Bytes.asList(scoreCard.getPlayerCourse(player)).stream(),
+                            (par, strokes) -> strokes - par)
+                        .map(StablefordSystem::getLevel)
+                        .map(StablefordSystem::getPoints)
+                        .reduce(0, Integer::sum)));
     }
 }

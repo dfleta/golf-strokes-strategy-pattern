@@ -1,21 +1,49 @@
 package edu.asestatuas.golfstrokes;
 
+import java.util.Arrays;
+import java.util.Optional;
+
 public enum StablefordSystem {
 
-    DOUBLE_BOGEY(-3),
-    BOGEY(-1),
-    PAR(0),
-    BIRDIE(2),
-    EAGLE(5),
-    ALBATROSS(8);
+    /** Two strokes or more over par */
+    DOUBLE_BOGEY(2, -3),
+    
+    /** One stroke over par */
+    BOGEY(1, -1),
+    
+    /** Equal to par */
+    PAR(0, 0),
+    
+    /** One stroke under par */
+    BIRDIE(-1, 2),
+    
+    /** Two strokes under par */
+    EAGLE(-2, 5),
+    
+    /** Three strokes under par */
+    ALBATROSS(-3, 8);
 
+    private final int strokes;
     private final int points;
 
-    private StablefordSystem(int points) {
+    private StablefordSystem(int strokes, int points) {
+        this.strokes = strokes;
         this.points = points;
     }
 
     public int getPoints() {
         return this.points;
+    }
+
+    public int getStrokes() {
+        return this.strokes;
+    }
+
+    public static StablefordSystem getLevel(int strokes) {
+        Optional<StablefordSystem> level = Arrays.asList(StablefordSystem.values())
+                                                    .stream()
+                                                    .filter(l -> l.getStrokes() == strokes)
+                                                    .findFirst();
+        return level.isPresent()? level.get() : DOUBLE_BOGEY;
     }
 }

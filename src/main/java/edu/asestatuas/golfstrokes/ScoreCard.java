@@ -61,6 +61,10 @@ public class ScoreCard {
         }
     }
 
+    public List<Hole> getHoles() {
+        return this.holes;
+    }
+
     public byte getNumHoles() {
         return (byte) this.holes.size();
     }

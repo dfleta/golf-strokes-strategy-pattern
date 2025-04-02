@@ -9,5 +9,8 @@ public class Hole {
         this.number = number;
         this.par = par;
     }
-    
+
+    public byte getPar() {
+        return this.par;
+    }
 }
