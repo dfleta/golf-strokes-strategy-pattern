@@ -2,7 +2,7 @@
 
 ## Descripción
 
-Desarrollar un sistema en Java para calcular las puntuaciones de un partido de golf siguiendo las modalidades _Stroke Play_ y _Stableford_. El sistema debe procesar los golpes realizados por varios jugadores en un recorrido de 18 hoyos y calcular sus puntuaciones según ambas modalidades.
+Desarrolla una app en Java para calcular las puntuaciones de un partido de golf siguiendo las modalidades _Stroke Play_ y _Stableford_. El sistema debe procesar los golpes realizados por varios jugadores en un recorrido de 18 hoyos y calcular sus puntuaciones según ambas modalidades.
 
 ![Golf Score Card](./doc/golf-scorecard-ringway.png)
 
@@ -21,26 +21,36 @@ Clase que gestiona el campo de golf y los recorridos de los jugadores, proporcio
 - Almacenamiento de golpes por jugador y hoyo
 - Métodos para añadir y recuperar recorridos de jugadores
 
+
+## Dependencias
+
+Has de incluir la dependancia a Google Guava en tu proyecto.
+
+Consulta la referencia de la librería para saber cómo añadirla:
+
+[https://github.com/google/guava](https://github.com/google/guava)
+
+
 ## Requisitos
 
 1. **Gestión de Jugadores**
-   - Implementar una clase `Player` que almacene:
-     - Iniciales del jugador (String)
-     - Hándicap (Byte)
-     - Puntuación total (Short)
-     - Puntos Stableford (Short)
+   - Implementa una clase `Player` que almacene:
+     - Iniciales del jugador.
+     - Hándicap.
+     - Puntuación total.
+     - Puntos Stableford.
 
 2. **Tarjeta de Puntuación**
-   - Implementar una clase `ScoreCard` que gestione:
-     - Hasta 4 jugadores (A, B, C, D)
-     - Lista de hoyos con su par correspondiente
-     - Referencia al campo (Course)
+   - Implementa una clase `ScoreCard` que gestione:
+     - Hasta 4 jugadores (A, B, C, D).
+     - Colección de hoyos con su par correspondiente.
+     - Referencia al campo (de tipo `Course`)
 
 3. **Modalidades de Juego**
-   - Implementar el patrón Strategy para las dos modalidades de puntuación:
-     - **Stroke Play**: suma total de golpes
-     - **Stableford**: puntos según la diferencia con el par del hoyo
-       * _Double Bogey_ (≥2 sobre par): -3 puntos
+   - Implementa el patrón Strategy para las dos modalidades de puntuación:
+     - **Stroke Play**: suma total de golpes.
+     - **Stableford**: puntos según la diferencia con el par del hoyo:
+       * _Double Bogey_ (2 o más sobre par): -3 puntos
        * _Bogey_ (1 sobre par): -1 punto
        * _Par_: 0 puntos
        * _Birdie_ (1 bajo par): 2 puntos
@@ -53,41 +63,27 @@ Clase que gestiona el campo de golf y los recorridos de los jugadores, proporcio
    - Implementa una clase `Hole` que representa un hoyo con su número en el circuito y su par.
 
 5. **Requisitos de Implementación**
-   - Usa el patrón Strategy para las modalidades de juego
-   - Implementa el principio Open/Closed
-   - Utiliza `Optional` para la gestión de jugadores
-   - (Opcional) Usa `Streams` para el procesamiento de datos
-   - Implementa un **tipo enumerado** para el sistema _Stableford_
+   - Usa el patrón _Strategy_ para las modalidades de juego.
+   - Implementa los principios Open/Closed y SRP.
+   - Utiliza `Optional` para la gestión de jugadores en `ScoreCard`.
+   - Puedes hacer uso de `Streams` para el procesamiento de datos.
+   - Implementa un **tipo enumerado** para el sistema _Stableford_.
 
 ## Ejemplo de Uso
 
 Salida por consola
 
-```bash
-MJ ---> H'cap: 0        Strokes: 71     Stableford points: 0
-
-JS ---> H'cap: 0        Strokes: 73     Stableford points: 0
-
-Numero de hoyos: 18
-
-Birdie: 2
-Eagle: -1
-
-MJ ---> H'cap: 0        Strokes: 71     Stableford points: 0
-
-JS ---> H'cap: 0        Strokes: 73     Stableford points: -2
-
-Meeseeks ---> H'cap: 0  Strokes: 71     Stableford points: 8
-```
+![Salida CLI](./doc/CLI.png)
 
 ## Evaluación
 
 Se valorará:
-1. Correcta implementación del patrón Strategy
-2. Uso adecuado de Optional y Streams
-3. Implementar un tipo enumerado para el sistema Stableford
-4. Implementación del principio Open/Closed
-5. Implementación de pruebas unitarias
+1. Correcta implementación del patrón _Strategy_.
+2. Uso adecuado de `Optional` y `Streams`.
+3. Uso del tipo de colección Java adecuado.
+3. Implementación de un tipo enumerado para el sistema _Stableford_.
+4. Implementación de los principios Open/Closed y SRP.
+5. Implementación de pruebas unitarias.
 
 
 ## Prepara el proyecto
@@ -106,4 +102,4 @@ Se valorará:
 
  1. Crea un repo PRIVADO en tu GitHub y compártelo con el usuario dfleta.
  2. **Realiza commits periódicamente** mientras avanzas en el desarrollo de la aplicación. Sin commit periódicos, no corrijo el examen.
- 3. Realiza un `push` al repo remoto en GitHub **SOLO cuando hayas terminado el proyecto**.
+ 3. Realiza un `push` al repo remoto en GitHub **SÓLO cuando hayas terminado el proyecto**.

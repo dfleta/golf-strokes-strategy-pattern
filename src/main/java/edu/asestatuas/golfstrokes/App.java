@@ -101,6 +101,7 @@ public class App {
          * Muestra por CLI iniciales, strokes y puntos (0)
          * de cada jugador.
          */
+        System.out.println("\n\t ##### STROKE PLAY #####");
         System.out.println(playerA);
         System.out.println(playerB);
 
@@ -114,6 +115,7 @@ public class App {
         /*
          * Muesta en CLI el total de hoyos de la tarjeta.
          */
+        System.out.println("\n\t ##### HOYOS #####");
         System.out.println("\nNumero de hoyos: " + scoreCard.getNumHoles()); // 18
 
         /*
@@ -132,6 +134,7 @@ public class App {
          * 
          * En este sistema, gana el jugador que sume mas puntos.
          */
+        System.out.println("\n\t ##### STABLEFORD SYSTEM #####");
         System.err.println("\nBirdie: " + StablefordSystem.BIRDIE.getPoints()); // 2
         System.out.println("Eagle: " + StablefordSystem.BOGEY.getPoints());  // -1
 
@@ -152,6 +155,7 @@ public class App {
          * Muestra en CLI los puntos totales
          * de los jugadores A y B
          */
+        System.out.println("\n\t ##### STABLEFORD POINTS  #####");
         System.out.println(playerA); // points: 0
         System.out.println(playerB); // points: -2
 
