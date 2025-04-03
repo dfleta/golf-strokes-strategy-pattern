@@ -73,7 +73,9 @@ Consulta la referencia de la librería para saber cómo añadirla:
 
 Salida por consola
 
-![Salida CLI](./doc/CLI.png)
+![Salida CLI](./doc/CLI_01.png)
+![Salida CLI](./doc/CLI_02.png)
+
 
 
 ## Diagrama de clases UML / Arquitectura de la app.
