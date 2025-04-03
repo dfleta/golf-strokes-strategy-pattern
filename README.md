@@ -42,22 +42,22 @@ Consulta la referencia de la librería para saber cómo añadirla:
 
 2. **Tarjeta de Puntuación**
    - Implementa una clase `ScoreCard` que gestione:
-     - Hasta 4 jugadores (A, B, C, D).
+     - Hasta 4 jugadores (A, B, C, D), **opcionales**.
      - Colección de hoyos con su par correspondiente.
      - Referencia al campo (de tipo `Course`)
 
 3. **Modalidades de Juego**
-   - Implementa el patrón Strategy para las dos modalidades de puntuación:
-     - **Stroke Play**: suma total de golpes.
-     - **Stableford**: puntos según la diferencia con el par del hoyo:
+   - Implementa el patrón _Strategy_ para las dos modalidades de puntuación:
+     - **Stroke Play**: suma total de golpes del recorrido de un jugador/a.
+     - **Stableford**: puntos según la diferencia con el par del hoyo. Compara el número de golpes del jugador/a en cada hoyo con el par del hoyo para averiguar la categoría obtenida en ese hoyo. La categoría indica los puntos a sumar o restar al total del jugador según esta equivalencia:  
        * _Double Bogey_ (2 o más sobre par): -3 puntos
        * _Bogey_ (1 sobre par): -1 punto
        * _Par_: 0 puntos
-       * _Birdie_ (1 bajo par): 2 puntos
-       * _Eagle_ (2 bajo par): 5 puntos
-       * _Albatross_ (3 bajo par): 8 puntos
-   - Crea la interfaz `GolfPlay` para implementar la estrategia.
-   - Clase `ComputeCard` que aplica la estrategia seleccionada.
+       * _Birdie_ (1 bajo par): +2 puntos
+       * _Eagle_ (2 bajo par): +5 puntos
+       * _Albatross_ (3 bajo par): +8 puntos
+   - Crea la interfaz `GolfPlay` para implementar la estrategia o modalidad de juego (_Stroke Play_ o _Stableford_).
+   - La clase `ComputeCard` aplica la estrategia /modalidad de juego seleccionada.
 
 4. **Hoyo**
    - Implementa una clase `Hole` que representa un hoyo con su número en el circuito y su par.
