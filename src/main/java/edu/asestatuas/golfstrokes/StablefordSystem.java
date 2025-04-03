@@ -46,4 +46,9 @@ public enum StablefordSystem {
                                                     .findFirst();
         return level.isPresent()? level.get() : DOUBLE_BOGEY;
     }
+
+    @Override
+    public String toString() {
+        return this.name() + ":\s" + this.getPoints();
+    }
 }

@@ -3,6 +3,8 @@
  */
 package edu.asestatuas.golfstrokes;
 
+import java.util.List;
+
 /**
  * Examen de Programación: Sistema de Puntuación de Golf
  * 
@@ -139,6 +141,8 @@ public class App {
         System.out.println("\n\t ##### STABLEFORD SYSTEM #####");
         System.err.println("\nBirdie: " + StablefordSystem.BIRDIE.getPoints()); // 2
         System.out.println("Eagle: " + StablefordSystem.BOGEY.getPoints());  // -1
+        System.out.println();
+        List.of(StablefordSystem.values()).forEach(System.out::println);
 
         /*
          * Calcula los puntos que obtienen los jugadores A y B
