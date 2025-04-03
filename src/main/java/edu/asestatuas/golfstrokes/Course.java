@@ -9,8 +9,6 @@ public class Course {
     private final Table<String, Byte, Byte> playersCourse = HashBasedTable.create();
 
     public Course() {};
-
-    // interfaz manipular Table y devolver List
     
     // añadir recorrido de un jugador
     public void addPlayerCourse(Player player, Byte[] playerCourse) {
@@ -20,6 +18,7 @@ public class Course {
         } 
     }
 
+    // obtener el recorrido de un jugador
     public byte[] getPlayerCourse(Player player) {
         return Bytes.toArray(this.playersCourse.row(player.getInitials()).values());
     }

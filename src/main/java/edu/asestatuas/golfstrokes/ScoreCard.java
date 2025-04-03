@@ -1,16 +1,16 @@
 package edu.asestatuas.golfstrokes;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 public class ScoreCard {
-
-    private final Byte NUM_HOLES = 18;
     
-    private Player playerA; // optional
-    private Player playerB;
-    private Player playerC;
-    private Player playerD;
+    private Optional<Player> playerA = Optional.empty();
+    private Optional<Player> playerB = Optional.empty();
+    private Optional<Player> playerC = Optional.empty();
+    private Optional<Player> playerD = Optional.empty();
     
     private final List<Hole> holes = new ArrayList<Hole>();
     
@@ -18,25 +18,20 @@ public class ScoreCard {
 
     public ScoreCard() {};
     
-    public void setPlayerA(Player playerA) {
-        this.playerA = playerA;
-        // set optional
+    public void setPlayerA(Player player) {
+        this.playerA = Optional.of(player);
     }
 
-    public Player getPlayerA() {
-        return this.playerA;
+    public void setPlayerB(Player player) {
+        this.playerB = Optional.of(player);
     }
 
-    public void setPlayerB(Player playerB) {
-        this.playerB = playerB;
+    public void setPlayerC(Player player) {
+        this.playerC = Optional.of(player);
     }
 
-    public void setPlayerC(Player playerC) {
-        this.playerC = playerC;
-    }
-
-    public void setPlayerD(Player playerD) {
-        this.playerD = playerD;
+    public void setPlayerD(Player player) {
+        this.playerD = Optional.of(player);
     }
 
     public void setPlayersCourse(Course playersCourse) {
@@ -48,11 +43,25 @@ public class ScoreCard {
     }
     
     public List<Player> getPlayers() {
-        List<Player> players = new ArrayList<>();
-        if (playerA != null) players.add(playerA);
-        if (playerB != null) players.add(playerB);
-        if (playerC != null) players.add(playerC);
-        if (playerD != null) players.add(playerD);
-        return players;
+        return Arrays.asList(playerA, playerB, playerC, playerD)
+                .stream()
+                .filter(player -> player.isPresent())
+                .map(Optional::get)
+                .toList();
+    }
+
+    public void addHoles(Byte[] holePar) {
+        byte holeNumber = 1;
+        for(Byte par : holePar) {
+            this.holes.add(new Hole(holeNumber++, par));
+        }
+    }
+
+    public List<Hole> getHoles() {
+        return this.holes;
+    }
+
+    public byte getNumHoles() {
+        return (byte) this.holes.size();
     }
 }
