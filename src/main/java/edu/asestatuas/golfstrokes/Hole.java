@@ -13,4 +13,9 @@ public class Hole {
     public byte getPar() {
         return this.par;
     }
+
+    @Override
+    public String toString() {
+        return "\s\s\s" + this.number + " - " + String.valueOf(this.getPar());
+    }
 }

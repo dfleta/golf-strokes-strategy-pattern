@@ -117,6 +117,8 @@ public class App {
          */
         System.out.println("\n\t ##### HOYOS #####");
         System.out.println("\nNumero de hoyos: " + scoreCard.getNumHoles()); // 18
+        System.out.println("\nhole - par");
+        scoreCard.getHoles().forEach(System.out::println);
 
         /*
          * 
