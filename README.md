@@ -75,6 +75,14 @@ Salida por consola
 
 ![Salida CLI](./doc/CLI.png)
 
+
+## Diagrama de clases UML / Arquitectura de la app.
+
+Utiliza el patrón _Strategy_ para estructurar la aplicación.
+
+Consulta su diseño en el libro sobre patrones de software proporcionado en la bibliografía del curso.
+
+
 ## Evaluación
 
 Se valorará:

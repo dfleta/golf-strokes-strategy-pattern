@@ -98,7 +98,7 @@ public class App {
          */
         computeStrokePlay.compute();
         /*
-         * Muestra por CLI iniciales, strokes y puntos (0)
+         * Muestra por CLI iniciales, strokes y stableford points (0)
          * de cada jugador.
          */
         System.out.println("\n\t ##### STROKE PLAY #####");
