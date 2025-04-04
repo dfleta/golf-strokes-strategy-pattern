@@ -85,6 +85,81 @@ Utiliza el patrón _Strategy_ para estructurar la aplicación.
 Consulta su diseño en el libro sobre patrones de software proporcionado en la bibliografía del curso.
 
 
+### Dependencia Google Guava en el fatJar.
+
+Incluye la dependencia al paquete [ASCII Table](https://mvnrepository.com/artifact/com.github.freva/ascii-table):
+
+https://mvnrepository.com/artifact/com.github.freva/ascii-table
+
+### Crea el fichero `jar` ejecutable.
+
+#### Maven
+
+Configura el _plugin_ `jar` para generar un fichero `jar` **ejecutable** con la clase principal `App.java`.
+
+Además, tendrás que incluir el siguiente _plugin_ en el archivo de configuración del proyecto.
+
+```xml
+        <!-- mvn clean compile assembly:single -->
+        <plugin>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <configuration>
+            <archive>
+              <manifest>
+                <mainClass>edu.asestatuas.golfstrokes.App</mainClass>
+              </manifest>
+            </archive>
+            <descriptorRefs>
+              <descriptorRef>jar-with-dependencies</descriptorRef>
+            </descriptorRefs>
+          </configuration>
+          <executions>
+            <execution>
+              <id>make-assembly</id>
+              <phase>package</phase> <!-- bind to the packaging phase -->
+              <goals>
+                <goal>single</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+```
+
+Genera el fichero `jar` desde línea de comandos:
+
+`mvn clean compile assembly:single`
+
+Obtendrás en el directorio `target` un fichero llamado:
+
+`artifactId-1.0-SNAPSHOT-jar-with-dependencies.jar`
+
+
+#### Gradle
+
+Configura la _task_ `jar` para generar un fichero `jar` **ejecutable** con la clase principal `App.java`.
+
+Además, tendrás que incluir la siguiente _tarea_ en el archivo de configuración del proyecto.
+
+```groovy
+// construir con: gradle fatJar
+// build/libs/brunosbox-1.0-SNAPSHOT.jar
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'edu.asestatuas.golfstrokes.App'
+    }
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    from { configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+```
+
+Genera el fichero `jar` desde línea de comandos:
+
+`gradle fatJar`
+
+Obtendrás en el directorio `build/libs` el fichero `.jar`.
+
+
 ## Evaluación
 
 Se valorará:
