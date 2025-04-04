@@ -143,7 +143,7 @@ public class App {
          * En este sistema, gana el jugador que sume mas puntos.
          */
         System.out.println("\n\t ##### STABLEFORD SYSTEM #####");
-        System.err.println("\nBirdie: " + StablefordSystem.BIRDIE.getPoints()); // 2
+        System.out.println("\nBirdie: " + StablefordSystem.BIRDIE.getPoints()); // 2
         System.out.println("Eagle: " + StablefordSystem.BOGEY.getPoints());  // -1
         System.out.println();
         List.of(StablefordSystem.values()).forEach(System.out::println);
