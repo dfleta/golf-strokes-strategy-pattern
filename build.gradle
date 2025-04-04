@@ -55,3 +55,18 @@ jar {
                    'Specification-Title' : 'Examen programacion'
     }
 }
+
+// construir con: gradle fatJar
+// java -jar build/libs/golf-strokes.jar
+task fatJar(type: Jar) {
+   manifest {
+        attributes 'Main-Class' : 'edu.asestatuas.golfstrokes.App',
+                   'Package-Title' : 'golfstrokes',
+                   'Package-Version': '1.0',
+                   'Package-Vendor' : 'davidg@edu.xunta.gal',
+                   'Specification-Title' : 'Examen programacion'
+    }
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    from { configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
