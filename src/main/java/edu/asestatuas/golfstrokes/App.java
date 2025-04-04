@@ -6,9 +6,6 @@ package edu.asestatuas.golfstrokes;
 import java.util.Arrays;
 import java.util.List;
 
-import com.google.common.collect.Streams;
-import com.google.common.primitives.Bytes;
-
 /**
  * Examen de Programación: Sistema de Puntuación de Golf
  * 
