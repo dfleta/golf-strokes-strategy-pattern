@@ -2,8 +2,8 @@ package edu.asestatuas.golfstrokes;
 
 public class ComputeCard {
     
-    private ScoreCard scoreCard;
-    private GolfPlay strategy;
+    private final ScoreCard scoreCard;
+    private final GolfPlay strategy;
 
     public ComputeCard (ScoreCard scoreCard, GolfPlay strategy) {
         this.scoreCard = scoreCard;
