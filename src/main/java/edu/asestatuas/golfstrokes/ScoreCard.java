@@ -42,7 +42,7 @@ public class ScoreCard {
         return this.playersCourse.getPlayerCourse(player);
     }
     
-    public List<Player> getPlayers() {
+    List<Player> getPlayers() {
         return Arrays.asList(playerA, playerB, playerC, playerD)
                 .stream()
                 .filter(player -> player.isPresent())

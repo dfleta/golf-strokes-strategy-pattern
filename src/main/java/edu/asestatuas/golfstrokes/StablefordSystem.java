@@ -3,7 +3,7 @@ package edu.asestatuas.golfstrokes;
 import java.util.Arrays;
 import java.util.Optional;
 
-public enum StablefordSystem {
+enum StablefordSystem {
 
     /** Two strokes or more over par */
     DOUBLE_BOGEY(2, -3),
@@ -31,15 +31,15 @@ public enum StablefordSystem {
         this.points = points;
     }
 
-    public int getPoints() {
+    int getPoints() {
         return this.points;
     }
 
-    public int getStrokes() {
+    int getStrokes() {
         return this.strokes;
     }
 
-    public static StablefordSystem getLevel(int strokes) {
+    static StablefordSystem getLevel(int strokes) {
         Optional<StablefordSystem> level = Arrays.asList(StablefordSystem.values())
                                                     .stream()
                                                     .filter(l -> l.getStrokes() == strokes)
