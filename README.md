@@ -84,6 +84,7 @@ Utiliza el patrón _Strategy_ para estructurar la aplicación.
 
 Consulta su diseño en el libro sobre patrones de software proporcionado en la bibliografía del curso.
 
+![Diagrama de clases UML](./doc/mermaid_UML_class_diagram.png)
 
 ### Dependencia Google Guava en el fatJar.
 

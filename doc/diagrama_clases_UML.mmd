@@ -1,0 +1,102 @@
+classDiagram
+    direction RL
+    class App {
+        +main(String[]) void$
+    }
+
+    class GolfPlay {
+        <<interface>>
+        +scoring(ScoreCard) void*
+    }
+
+    class StrokePlay {
+        +scoring(ScoreCard) void
+    }
+
+    class Stableford {
+        +scoring(ScoreCard) void
+    }
+
+    class ComputeCard {
+        -scoreCard ScoreCard
+        -golfPlay: GolfPlay
+        +compute() void
+    }
+
+    class StablefordSystem {
+        <<enumeration>>
+        DOUBLE_BOGEY
+        BOGEY
+        PAR
+        BIRDIE
+        EAGLE
+        ALBATROSS
+        -points: int
+        ~StablefordSystem(int points)
+        +getPoints() int
+    }
+
+    class Course {
+        -playersCourse: Table~ String, Byte, Byte~
+        ~Course()
+        +addPlayerCourse(Player, Byte[]) void
+        +getPlayerCourse(Player) byte[]
+    }
+
+    class Hole {
+        -number: Byte
+        -par: Byte
+        ~Hole(Byte number, Byte par)
+        ~getNumber() Byte
+        ~getPar() Byte
+    }
+
+    class ScoreCard {
+        -NUM_HOLES: Byte
+        -playerA: Player
+        -playerB: Player
+        -playerC: Player
+        -playerD: Player
+        -holes: List~Hole~
+        -playersCourse: Course
+        ~ScoreCard()
+        +getPlayers() List~Player~
+        +setPlayerA(Player) void
+        +setPlayerB(Player) void
+        +setPlayerC(Player) void
+        +setPlayerD(Player) void
+        +setPlayersCourse(Course) void
+        +getPlayerCourse(Player) byte[]
+        +addHoles(Byte[]) void
+        +getNumHoles() int
+    }
+
+    class Player {
+        -initials: String
+        -handicap: Byte
+        -score: Short
+        -points: Short
+        ~Player(String initials, Byte handicap)
+        ~getInitials() String
+        ~setScore(int) void
+        ~getScore() Short
+        ~setPoints(int) void
+        ~getPoints() Short
+        +toString() String
+    }
+
+    GolfPlay <|.. StrokePlay
+    GolfPlay <|.. Stableford
+    ComputeCard --> GolfPlay
+    ComputeCard --> ScoreCard
+    ScoreCard --> Player
+    ScoreCard --> Course
+    ScoreCard *-- Hole
+    Course ..> Player
+    App ..> Course : <<uses>>
+    App ..> Player : <<uses>>
+    App ..> ScoreCard : <<uses>>
+    App ..> ComputeCard : <<uses>>
+    App ..> StrokePlay : <<uses>>
+    App ..> Stableford : <<uses>>
+    App ..> StablefordSystem : <<uses>>
