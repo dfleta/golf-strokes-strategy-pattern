@@ -1,16 +1,16 @@
 package edu.asestatuas.golfstrokes;
 
-public class Hole {
+class Hole {
 
     private final Byte number;
-    private Byte par;
+    private final Byte par;
     
-    public Hole(Byte number, Byte par) {
+    Hole(Byte number, Byte par) {
         this.number = number;
         this.par = par;
     }
 
-    public byte getPar() {
+    byte getPar() {
         return this.par;
     }
 
