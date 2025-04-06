@@ -87,12 +87,6 @@ Consulta su diseño en el libro sobre patrones de software proporcionado en la b
 
 ### Dependencia Google Guava en el fatJar.
 
-Incluye la dependencia al paquete [ASCII Table](https://mvnrepository.com/artifact/com.github.freva/ascii-table):
-
-https://mvnrepository.com/artifact/com.github.freva/ascii-table
-
-### Crea el fichero `jar` ejecutable.
-
 #### Maven
 
 Configura el _plugin_ `jar` para generar un fichero `jar` **ejecutable** con la clase principal `App.java`.
